@@ -1,0 +1,119 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVWKInAppBrowser\" /><param name=\"onload\" value=\"true\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"IDMissionSDK_Cordova_Plugin\"><param name=\"ios-package\" value=\"IDMissionSDK_Cordova_Plugin\" /></feature>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "*-Info.plist": {
+        "parents": {
+          "NSCameraUsageDescription": [
+            {
+              "xml": "<string>$(PRODUCT_NAME) wants to access your camera.</string>",
+              "count": 1,
+              "mode": "merge",
+              "plugin": "com.idmission.sdk.plugin"
+            }
+          ],
+          "NSMicrophoneUsageDescription": [
+            {
+              "xml": "<string>$(PRODUCT_NAME) wants to access your microphone.</string>",
+              "count": 1,
+              "mode": "merge",
+              "plugin": "com.idmission.sdk.plugin"
+            }
+          ],
+          "NSLocationAlwaysAndWhenInUseUsageDescription": [
+            {
+              "xml": "<string>$(PRODUCT_NAME) wants to access your location.</string>",
+              "count": 1,
+              "mode": "merge",
+              "plugin": "com.idmission.sdk.plugin"
+            }
+          ],
+          "NSLocationAlwaysUsageDescription": [
+            {
+              "xml": "<string>$(PRODUCT_NAME) wants to access your location.</string>",
+              "count": 1,
+              "mode": "merge",
+              "plugin": "com.idmission.sdk.plugin"
+            }
+          ],
+          "NSLocationUsageDescription": [
+            {
+              "xml": "<string>$(PRODUCT_NAME) wants to access your location.</string>",
+              "count": 1,
+              "mode": "merge",
+              "plugin": "com.idmission.sdk.plugin"
+            }
+          ],
+          "NSLocationWhenInUseUsageDescription": [
+            {
+              "xml": "<string>$(PRODUCT_NAME) wants to access your location.</string>",
+              "count": 1,
+              "mode": "merge",
+              "plugin": "com.idmission.sdk.plugin"
+            }
+          ],
+          "NSAppTransportSecurity": [
+            {
+              "xml": "<dict><key>NSAllowsArbitraryLoads</key><true /></dict>",
+              "count": 1,
+              "mode": "merge",
+              "plugin": "com.idmission.sdk.plugin"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.idmission.sdk.Client"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.idmission.idaas"
+    },
+    "com.idmission.sdk.plugin": {
+      "PACKAGE_NAME": "com.idmission.sdk.Client"
+    }
+  },
+  "dependent_plugins": {},
+  "modules": [
+    {
+      "id": "cordova-plugin-inappbrowser.inappbrowser",
+      "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+      "pluginId": "cordova-plugin-inappbrowser",
+      "clobbers": [
+        "cordova.InAppBrowser.open"
+      ]
+    },
+    {
+      "id": "com.idmission.sdk.plugin.IDMissionSDK_Cordova_Plugin",
+      "file": "plugins/com.idmission.sdk.plugin/www/IDMissionSDK_Cordova_Plugin.js",
+      "pluginId": "com.idmission.sdk.plugin",
+      "clobbers": [
+        "cordova.plugins.IDMissionSDK_Cordova_Plugin"
+      ]
+    }
+  ],
+  "plugin_metadata": {
+    "cordova-plugin-whitelist": "1.3.4",
+    "cordova-plugin-inappbrowser": "5.0.0",
+    "com.idmission.sdk.plugin": "0.0.3"
+  }
+}

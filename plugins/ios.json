@@ -1,0 +1,21 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.idmission.sdk.Client"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "com.idmission.idaas"
+    },
+    "com.idmission.sdk.plugin": {
+      "PACKAGE_NAME": "com.idmission.sdk.Client"
+    }
+  },
+  "dependent_plugins": {}
+}

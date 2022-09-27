@@ -1,0 +1,19 @@
+{
+  "name": "com.idmission.sdk.plugin",
+  "version": "0.0.3",
+  "description": "",
+  "cordova": {
+    "id": "com.idmission.sdk.plugin",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "",
+  "license": "ISC"
+}

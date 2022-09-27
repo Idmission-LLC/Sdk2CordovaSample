@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.idmission.sdk.plugin" version="0.0.3" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>IDMissionSDK_Cordova_Plugin</name>
+	<js-module name="IDMissionSDK_Cordova_Plugin" src="www/IDMissionSDK_Cordova_Plugin.js">
+		<clobbers target="cordova.plugins.IDMissionSDK_Cordova_Plugin"/>
+	</js-module>
+	<platform name="android">
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="IDMissionSDK_Cordova_Plugin">
+				<param name="android-package" value="com.idmission.sdk.plugin.IDMissionSDK_Cordova_Plugin"/>
+			</feature>
+		</config-file>
+		<edit-config file="AndroidManifest.xml" target="/manifest/application" mode="merge">
+			<application tools:replace="android:icon,android:hardwareAccelerated" />
+		</edit-config>
+		<edit-config file="AndroidManifest.xml" target="/manifest" mode="merge">
+			<manifest xmlns:tools="http://schemas.android.com/tools"></manifest>
+		</edit-config>
+		<config-file parent="/*" target="AndroidManifest.xml">
+			<uses-sdk android:name="android.hardware.camera.front" android:required="false" android:targetSdkVersion="28" />
+			<uses-permission android:name="android.permission.INTERNET" />
+			<uses-permission android:name="android.permission.CAMERA" />
+			<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+			<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+			<uses-permission android:name="android.permission.RECORD_AUDIO" />
+			<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+			<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+			<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+			<uses-permission android:name="android.permission.RECORD_VIDEO" />
+			<uses-feature android:name="android.hardware.camera" android:required="false" />
+			<uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+			<uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+			<uses-feature android:name="android.hardware.camera.front" android:required="false"/>
+		</config-file>
+		<source-file src="src/android/Client/MainActivity.java" target-dir="src/com/idmission/sdk/Client"/>
+		<source-file src="src/android/IDMissionSDK_Cordova_Plugin.java" target-dir="src/com/idmission/sdk/plugin/IDMissionSDK_Cordova_Plugin"/>
+        <source-file src="src/android/ImageProcessingResponseListenerPluginImpl.java" target-dir="src/com/idmission/sdk/plugin/IDMissionSDK_Cordova_Plugin"/>
+		<source-file src="src/android/ui/evolv_ui_customization_ar.json" target-dir="src/main/assets" />
+		<source-file src="src/android/ui/evolv_ui_customization_es.json" target-dir="src/main/assets" />
+		<source-file src="src/android/ui/evolv_ui_customization_my.json" target-dir="src/main/assets" />
+		<source-file src="src/android/ui/evolv_ui_customization.json" target-dir="src/main/assets" />
+	</platform>
+	<platform name="ios">
+		<config-file parent="/*" target="config.xml">
+			<feature name="IDMissionSDK_Cordova_Plugin">
+				<param name="ios-package" value="IDMissionSDK_Cordova_Plugin"/>
+			</feature>
+		</config-file>
+        <source-file src="src/ios/IDMissionSDK_Cordova_Plugin.m" />
+        <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
+			<string>$(PRODUCT_NAME) wants to access your camera.</string>
+		</edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSMicrophoneUsageDescription">
+			<string>$(PRODUCT_NAME) wants to access your microphone.</string>
+		</edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationAlwaysAndWhenInUseUsageDescription">
+			<string>$(PRODUCT_NAME) wants to access your location.</string>
+		</edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationAlwaysUsageDescription">
+			<string>$(PRODUCT_NAME) wants to access your location.</string>
+		</edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationUsageDescription">
+			<string>$(PRODUCT_NAME) wants to access your location.</string>
+		</edit-config>
+        <edit-config file="*-Info.plist" mode="merge" target="NSLocationWhenInUseUsageDescription">
+			<string>$(PRODUCT_NAME) wants to access your location.</string>
+		</edit-config>
+		<edit-config file="*-Info.plist" mode="merge" target="NSAppTransportSecurity">
+			<dict>
+				<key>NSAllowsArbitraryLoads</key>
+				<true/>
+			</dict>
+		</edit-config>
+		<podspec>
+            <config>
+                <source url="https://github.com/brightcove/BrightcoveSpecs.git" />
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="WebRTC" />
+                <pod name="CocoaLumberjack" />
+                <pod name="SocketRocket" />
+                <pod name="ZXingObjC"  version=">=3.2.2"/>
+                <pod name="SSZipArchive" />
+                <pod name="TensorFlowLiteObjC"/>
+                <pod name="GoogleMLKit/TextRecognition" />
+                <pod name="GoogleMLKit/FaceDetection" />
+            </pods>
+        </podspec>
+	</platform>
+</plugin>
