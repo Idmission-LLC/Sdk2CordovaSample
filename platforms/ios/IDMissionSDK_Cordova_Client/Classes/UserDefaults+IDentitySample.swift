@@ -45,9 +45,9 @@ extension UserDefaults {
     static let defaultTemplateModelBaseURL = "https://demo.idmission.com/IDS/service/"
     static let defaultAPIBaseURL = "https://apidemo.idmission.com/"
 
-    static let defaultLoginId = "SDK_C"
-    static let defaultPassword = "Idmission#2"
-    static let defaultMerchantId = "12511"
+    static let defaultLoginId = ""
+    static let defaultPassword = ""
+    static let defaultMerchantId = ""
 
     private static let templateModelBaseURLKey = "templateModelBaseURL"
     static var templateModelBaseURL: String {
